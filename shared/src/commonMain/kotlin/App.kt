@@ -12,6 +12,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -36,6 +38,11 @@ fun App() {
             }
         }
     }
+    Dialog(properties = createDialogProperties(), onDismissRequest = {}) {
+        Text("Content")
+    }
 }
 
 expect fun getPlatformName(): String
+
+expect fun createDialogProperties(): DialogProperties
